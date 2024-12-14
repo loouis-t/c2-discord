@@ -1,0 +1,10 @@
+[package]
+name = "c2-discord"
+version = "0.1.0"
+authors = ["Louis Travaux", "Léo Portet", "Yan Arresseguet", "Baptiste Hennuy"]
+edition = "2021"
+
+[dependencies]
+dotenv = "0.15.0"
+serenity = { version = "0.12.4", features = ["client", "gateway", "model", "rustls_backend"] }
+tokio = { version = "1.42.0", features = ["macros", "rt-multi-thread"] }
