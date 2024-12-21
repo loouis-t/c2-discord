@@ -82,7 +82,13 @@ async fn send_file(ctx: &Context, msg: &Message, file_path: &str) {
         format!("Here is the file `{}`: ", file_path)
     );
     let paths = [
-        CreateAttachment::path(file_path).await.expect("Failed to create attachment")
+        match CreateAttachment::path(file_path).await {
+            Ok(path) => path,
+            Err(why) => {
+                answer(&ctx, &msg, format!("Failed to send file: {why:?}")).await;
+                return;
+            },
+        },
     ];
     if let Err(why) = msg.channel_id.send_files(&ctx.http, paths, builder).await {
         println!("Error sending message: {why:?}");
