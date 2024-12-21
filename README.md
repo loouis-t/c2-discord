@@ -36,3 +36,7 @@ The bot will listen to messages in the server, and execute the commands.
 
 - `!download <path>`: Download a file from the given path.
 - `!run <command>`: Execute a bash command on the machine.
+
+---
+
+CY Tech - Louis Travaux, Yan Arresseguet, Léo Portet, Baptiste Hennuy.
